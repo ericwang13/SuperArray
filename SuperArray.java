@@ -68,4 +68,9 @@ public class SuperArray {
     public boolean isEmpty() {
         return size == 0;
     }
+
+    public void clear() {
+        data = new String[10];
+        size = 0;
+    }
 }
