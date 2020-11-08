@@ -37,12 +37,9 @@ public class SuperArray {
 
     public String remove(int index) {
         String toRemove = data[index];
-        String prev = null;
-        String tmp;
-        for (int i = size; i >= index; i--) {
-            tmp = data[i];
-            data[i] = prev;
-            prev = tmp;
+        for (int i = index; i < size; i++) {
+            System.out.println(data[i]);
+            data[i] = data[i + 1];
         }
         size--;
         return toRemove;
@@ -108,5 +105,27 @@ public class SuperArray {
             arr[i] = data[i];
         }
         return arr;
+    }
+
+    public int lastIndexOf(String value) {
+        for (int i = size - 1; i > 0; i--) {
+            if (data[i].equals(value))
+                return i;
+        }
+        return -1;
+    }
+
+    public boolean equals(SuperArray other) {
+        if (size != other.size) {
+            System.out.println("Taylor");
+            return false;
+        }
+
+        for (int i = 0; i < size; i++) {
+            if (!data[i].equals(other.get(i))) {
+                return false;
+            }
+        }
+        return true;
     }
 }
