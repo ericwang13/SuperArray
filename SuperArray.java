@@ -117,7 +117,6 @@ public class SuperArray {
 
     public boolean equals(SuperArray other) {
         if (size != other.size) {
-            System.out.println("Taylor");
             return false;
         }
 
