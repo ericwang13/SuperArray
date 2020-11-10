@@ -7,6 +7,10 @@ public class SuperArray {
     }
 
     public SuperArray(int initialCapacity) {
+        if (initialCapacity < 0) {
+            throw new IllegalArgumentException("Initial capacity of " + initialCapacity + " cannot be negative");
+        }
+
         data = new String[initialCapacity];
         size = 0;
     }
@@ -25,6 +29,10 @@ public class SuperArray {
     }
 
     public void add(int index, String element) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index of " + index + " is not in range of the SuperArray");
+        }
+
         String prev = element;
         String tmp;
         size++;
@@ -36,6 +44,10 @@ public class SuperArray {
     }
 
     public String remove(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index of " + index + " is not in range of the SuperArray");
+        }
+
         String toRemove = data[index];
         for (int i = index; i < size; i++) {
             System.out.println(data[i]);
@@ -46,10 +58,18 @@ public class SuperArray {
     }
 
     public String get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index of " + index + " is not in range of the SuperArray");
+        }
+
         return data[index];
     }
 
     public String set(int index, String element) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index of " + index + " is not in range of the SuperArray");
+        }
+
         String replaced = data[index];
         data[index] = element;
         return replaced;
@@ -119,7 +139,6 @@ public class SuperArray {
         if (size != other.size) {
             return false;
         }
-
         for (int i = 0; i < size; i++) {
             if (!data[i].equals(other.get(i))) {
                 return false;
