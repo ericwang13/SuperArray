@@ -29,7 +29,7 @@ public class SuperArray {
     }
 
     public void add(int index, String element) {
-        if (index < 0 || index >= size) {
+        if (index < 0 || index > size) {
             throw new IndexOutOfBoundsException("Index of " + index + " is not in range of the SuperArray");
         }
 
